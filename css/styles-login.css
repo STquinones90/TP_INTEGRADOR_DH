@@ -209,3 +209,8 @@ textarea.form-control:focus {
 .mi-check {
   padding-top: 9px;
 }
+
+
+.invalid-feedback  {
+  color: white;
+}

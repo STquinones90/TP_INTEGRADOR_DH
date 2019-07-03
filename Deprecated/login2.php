@@ -1,55 +1,44 @@
 ﻿<?php
-  require_once 'config.php';
-	require_once 'classes/Validator.php';
-	require_once 'classes/RegisterValidator.php';
-	require_once 'classes/LoginValidator.php';
-	require_once 'classes/SaveImage.php';
-	require_once 'classes/User.php';
-	require_once 'classes/DB.php';
-	require_once 'classes/DBJson.php';
-	require_once 'classes/Auth.php';
-
-  $opt=[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION];
-  $dsn='mysql:host=localhost; dbname=users; port:3306';
-  $root='root';
-  $pass='';
-  $DB = new DBJson($dsn, $root, $pass, $opt);
-  $Auth = new Auth($DB);
-
-	// session_start();
+	// Incluimos el controlador del registro-login
+	// De esta manera tengo el scope a la funciones que necesito
+	require_once 'register-login-controller.php';
 
 	// Si está logueda la persona la redirijo al profile
-	if ( $Auth->isLogged() ) {
+	if ( isLogged() ) {
 		header('location: profile.php');
 		exit;
 	}
 
-	$loginValidator = new LoginValidator;
+	// Generamos nuestro array de errores interno
+	$errorsInLogin = [];
+
+	// Persistimos el email
+	$email = '';
 
 	if ($_POST) {
-	    $user = $DB->getUserByEmailUsername($_POST['email']);
-      // var_dump('Lo que me trae con ese campo mail');
-      // var_dump($user);
-      // exit;
-			if ( !$user ) {
-           // var_dump('no reconoce al cosme fulano');
-				   $loginValidator->setError('email', 'No hay usuario registrado con ese email/username');
-			}
-      elseif ( !password_verify($_POST['password'], $user->getPassword()) ) {
-		 		   $loginValidator->setError('password', 'Error de credenciales');
-			}
-		 	if( $loginValidator->isValid() ) {
-				  //Tenemos que preguntar si quiere ser recordado
-	 		if ( isset($_POST['rememberUser']) ) {
-		 			  setcookie('userLogedEmail', $user->getEmail(), time() + 3000);
-	 		 }
-		 		 $Auth->login($user);
-		 	 }
-		 }
+		// Persistimos el email con lo vino por $_POST
+		$email = trim($_POST['email']);
 
+		// La función loginValidate() nos retorna el array de errores que almacenamos en esta variable
+		$errorsInLogin = loginValidate();
+		// var_dump($errorsInLogin);
+
+		if ( !$errorsInLogin ) {
+			// Traemos al usuario que vamos a loguear
+			$userToLogin = getUserByEmail($email);
+
+			// Preguntamos si quiere ser recordado
+			if ( isset($_POST['rememberUser']) ) {
+				setcookie('userLoged', $email, time() + 3000);
+			}
+
+			// Logeamos al usuario
+			login($userToLogin);
+		}
+	}
 
 	$pageTitle = 'Login';
-
+	// require_once 'partials/head.php';
 ?>
 
 <!DOCTYPE html>
@@ -120,16 +109,16 @@
                                   <form role="form" class="" action="" method="post">
                                       <!-- Agrupamientos de los inputs, usamos unas clases propias de bootstrap -->
                                       <div class="form-group">
-                                            <input type="text" name="email" value="<?= $loginValidator->getEmail() ?>" placeholder="Ingresa tu usuario..." class="form-control <?= $loginValidator->hasError('email') ? 'is-invalid' : null ?>" id="email-form">
+                                            <input type="text" name="email" value="<?= $email; ?>" placeholder="Ingresa tu usuario..." class="form-control <?= isset($errorsInLogin['email']) ? 'is-invalid' : null ?>" id="email-form">
                                             <div class="invalid-feedback">
-          				                                <?= $loginValidator->hasError('email') ? $loginValidator->getError('email') : null; ?>
-        				                            </div>
+                                                  <?= isset($errorsInLogin['email']) ? $errorsInLogin['email'] : null; ?>
+                                            </div>
                                       </div>
                                       <div class="form-group">
-                                            <input type="password" name="password" value="" placeholder="Ingresa tu password..." class="form-control <?= $loginValidator->hasError('password') ? 'is-invalid' : null ?>" id="password-form">
+                                            <input type="password" name="password" value="" placeholder="Ingresa tu password..." class="form-control <?= isset($errorsInLogin['password']) ? 'is-invalid' : null ?>" id="password-form">
 																						<i id="show-hide-passwd" action="hide" class="fas fa-eye-slash mi-check" aria-hidden="true"></i>
-                                            <div class="invalid-feedback">
-          				                                <?= $loginValidator->hasError('password') ? $loginValidator->getError('password') : null; ?>
+																						<div class="invalid-feedback">
+          				                                <?= isset($errorsInLogin['password']) ? $errorsInLogin['password'] : null; ?>
         				                            </div>
                                       </div>
                                       <button type="submit" name="button" class=" btn btn-primary mi-boton">Ingresar</button>
@@ -165,5 +154,6 @@
             </ul>
           </div>
       <!-- </div> -->
+
   </body>
 </html>

@@ -23,7 +23,6 @@ if ( $Auth->isLogged() ) {
 		exit;
 	}
 
-var_dump('Va a instanciar registrer');
 
 
 $registrerValidator = new RegisterValidator;
@@ -31,7 +30,7 @@ $registrerValidator = new RegisterValidator;
 if ($_POST) {
     if (!empty($_POST['email'])) {
           if ( $DB->emailExist($_POST['email']) ) {
-              var_dump('Entro a setear error de que ese mail ya existe');
+              // var_dump('Entro a setear error de que ese mail ya existe');
               $registrerValidator->setError('email', 'Ya se registraron con ese correo electrónico');
             }
           }
@@ -45,7 +44,6 @@ if ($_POST) {
           $user = new User($_POST['username'], $_POST['name'], $_POST['lastname'], $_POST['email'], $_POST['country'], SaveImage::$avatarName);
           $user->setPassword($_POST['password']);
           $DB->saveUser($user);
-          var_dump('Voy a loguear al tipo');
 			    $Auth->login($user);
 
 
@@ -179,7 +177,7 @@ if ($_POST) {
         				                            </div>
                                       </div>
                                       <div class="form-group">
-                                            <input type="text" name="name" value="<?= $registrerValidator->getName(); ?>" placeholder="Ingresa tu nombre..." class="form-control <?= $registrerValidator->hasError('name') ? 'is-invalid' : null ?>" id="name-form">
+                                            <input type="text" name="name" value="<?= $registrerValidator->getName() ?>" placeholder="Ingresa tu nombre..." class="form-control <?= $registrerValidator->hasError('name') ? 'is-invalid' : null ?>" id="name-form">
                                             <div class="invalid-feedback">
           				                                <?= $registrerValidator->hasError('name') ? $registrerValidator->getError('name') : null; ?>
         				                            </div>

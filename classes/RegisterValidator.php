@@ -49,8 +49,8 @@
 			} elseif ( !filter_var($this->email, FILTER_VALIDATE_EMAIL) ) { // Si el atributo $email NO es un formato de email válido
 				$this->setError('email', 'Introducí un formato de email válido');
 			}
-			var_dump('la pass:');
-			var_dump($this->password);
+			// // var_dump('la pass:');
+			// var_dump($this->password);
 			// Si está vació el atributo: $password
 			if ( empty($this->password) ) {
 				$this->setError('password', 'El campo password es obligatorio');
