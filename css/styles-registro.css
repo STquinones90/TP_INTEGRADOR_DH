@@ -191,8 +191,9 @@ textarea.form-control:focus {
 }
 
 .mi-footer {
+    margin-top: 20px;
     background: black;
-    height: 15%;
+    height: 10%;
 }
 
 

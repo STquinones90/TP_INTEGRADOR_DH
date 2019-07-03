@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 
 
@@ -60,7 +60,6 @@
 				$this->setError('password', 'La password no puede contener espacios');
 			} elseif ((strrpos($this->password, 'DH')) === false) {
 				$this->setError('password', 'La password debe contener una D y H seguidas');
-				exit;
 			}
 
 			// Si está vació el atributo: $rePassword
