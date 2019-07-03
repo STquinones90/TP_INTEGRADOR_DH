@@ -25,7 +25,7 @@
 				$country = $oneUser->getcountry();
 				$avatar = $oneUser->getAvatar();
 				$password = $oneUser->getPassword();
-  			$sql="INSERT INTO user  values (default, '$username', '$name', '$lastname','$email', '$country', '$avatar', '$password')";
+  			$sql="INSERT INTO user values (default, '$username', '$name', '$lastname','$email', '$country', '$avatar', '$password')";
   			$query= $this->dbName->prepare($sql);
   			$query->execute();
 			} catch(\Exception $e) {

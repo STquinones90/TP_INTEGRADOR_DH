@@ -229,3 +229,7 @@ textarea.form-control:focus {
 .mi-check {
   padding-top: 9px;
 }
+
+.mi-principal-form .mi-boton {
+  margin-top: 30px;
+}

@@ -86,8 +86,9 @@
 				$ext = pathinfo($this->avatar['name'], PATHINFO_EXTENSION);
 
 				// Si la extesnión del archivo que cargaron NO está en mi array de formatos permitidos
-				if (( $ext != 'jpg') && ( $ext !=  'png') && ($ext != 'gif') ) {
-					// $this->setError('avatar', 'Los formatos permitidos son JPG, PNG y GIF');
+				//if (( $ext != 'jpg') && ( $ext !=  'png') && ($ext != 'gif') )
+				  if ( ($ext != "jpg") && ($ext != 'png') && ($ext != 'gif')) {
+					$this->setError('avatar', 'Los formatos permitidos son JPG, PNG y GIF');
 				}
 			}
 
