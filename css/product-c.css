@@ -1,5 +1,6 @@
 body{
    background-color: white;
+    overflow: auto;
 }
 @media (min-width:768px) {
 /* .carousel-item{
@@ -24,6 +25,12 @@ body{
 }
 .card img {
   max-height: 133px;
+  width: auto;
+  object-fit: contain;
+}
+
+.card-title{
+  color: gray;
 }
 .card-title h5 {
   height: 30px;

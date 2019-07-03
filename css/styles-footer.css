@@ -51,3 +51,7 @@
   .menu-maps, .contacto, .lista-de-secciones{
     margin-top: 10px;
   }
+
+.footer-link a{
+  color: #000;
+}

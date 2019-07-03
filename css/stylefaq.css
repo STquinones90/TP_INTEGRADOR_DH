@@ -5,6 +5,7 @@
 
 body{
   font-family: "Fira Sans", sans-serif; /*esto es para que si no carga la tipografia roboto me cargue la sans-serif*/
+  background-image: url("../images/colorclaro.jpg");
   background-color: rgba(75,145,214,0.11);
   background-size:cover;
 
@@ -18,7 +19,7 @@ ol{
 
 a{
   text-decoration: none;
-  color: inherit; /*esto significa que esta hereddando el color de su padre*/
+  color: inherit; /*esto significa que esta heredando el color de su padre*/
   display: inline-block; /*para que tome los margenes y no ocupe todo el ancho, esto lo uso por default*/
 }
 
@@ -28,23 +29,32 @@ img{
 
 /*--------hasta acá es el seteo de los estilos de la pagina-------------*/
 
-
+.card-faq{
+  width: inherit;
+}
 .faq-cuerpo{
   padding-top: 110px;
   padding-left: 20px;
   padding-right: 20px;
   margin-right: auto;
   margin-left: auto;
+  background-color: rgba(75,145,214,0.11);
+  background-size:cover;
 }
 
 .faq-tema{
   margin-top: 15px;
 }
 
+.faq-tema h4{
+  color: #000;
+}
+
 .faq-pregunta-contenedor{
   background-size:cover;
   background-color: rgba(207,23,81);
   padding: inherit;
+  width: 100vw;
 }
 
 .faq-pregunta{
@@ -59,7 +69,10 @@ img{
    color: rgb(75,209,182);
  }
 
-
+.faq-respuesta{
+  color: #000;
+  text-align: left;
+}
 .faq-respuesta li{
   list-style: initial;
   margin-left: 2%;

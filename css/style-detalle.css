@@ -1,10 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,500'); /*tipografia*/
-
-@import url("http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"); /*para poder usar los iconitos, que se comporta como tipografia*/
-
-@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css"); /*normalize*/
-
-
 
 *{
   box-sizing: border-box;
@@ -41,8 +34,9 @@ h1, h2 {
 }
 
 h3 {
-  margin-top: 10px;
-  font-size: 38px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 30px;
   font-weight: 100;
   line-height: 50px;
   color: black;
@@ -55,7 +49,7 @@ h3 {
 .contenedor-detalle {
   padding: 0px 0 0px 0;
   overflow: hidden;
-  margin-top: 15px;
+  margin-top: 145px;
 }
 
 .contenedor-detalle .detalle-descripciones {
@@ -70,7 +64,7 @@ h3 {
 
 .mi-cabecera-detalle {
   overflow: hidden;
-  padding: 0 25px 15px 25px;
+  padding: 0 25px 0 25px;
   background: #F52854;
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
@@ -94,5 +88,9 @@ h3 {
 }
 
 .imagen-producto{
-  max-height: 350px;
+  max-height: 200px;
+}
+
+.descripcion-detalle, .publicadoPor{
+  font-size: 0.8em;
 }
