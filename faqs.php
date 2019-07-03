@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="css/stylefaq.css">
   </head>
 
-  <body class="faq-cuerpo">
+<body class="faq-cuerpo">
 
-    <?php require_once('nav-bar.php'); ?>
+    <?php require_once 'nav-bar.php'; ?>
 
 <!--                        inicio de contenido FAQ            -->
 <div class="accordion faq-tema" id="sesion">
   <h4>Configuracion de Cuenta</h4>
-  <div class="card">
+  <div class="card card-faq">
     <div class="card-header faq-pregunta-contenedor" id="headingUsuarioNuevo">
       <h2 class="mb-0">
         <button class="btn btn-link faq-pregunta" type="button" data-toggle="collapse" data-target="#usuarioNuevo" aria-expanded="true" aria-controls="collapseUsuarioNuevo">
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  <div class="card">
+  <div class="card card-faq">
     <div class="card-header faq-pregunta-contenedor" id="headingCambioContrasenia">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed faq-pregunta" type="button" data-toggle="collapse" data-target="#cambioContrasenia" aria-expanded="false" aria-controls="collapseCambioContrasenia">
@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-  <div class="card">
+  <div class="card card-faq">
     <div class="card-header faq-pregunta-contenedor" id="headingNoRecibiConfirm">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed faq-pregunta" type="button" data-toggle="collapse" data-target="#noRecibiConfirm" aria-expanded="false" aria-controls="collapseNoRecibiConfirm">
@@ -73,7 +73,7 @@
 
 <div class="accordion faq-tema" id="publicar">
   <h4>Publicar</h4>
-  <div class="card">
+  <div class="card card-faq">
     <div class="card-header faq-pregunta-contenedor" id="headingComoPublicar">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed faq-pregunta" type="button" data-toggle="collapse" data-target="#comoPublicar" aria-expanded="false" aria-controls="collapseComoPublicar">
@@ -103,7 +103,7 @@
 
 <div class="accordion faq-tema" id="compra">
   <h4>Compra</h4>
-  <div class="card">
+  <div class="card card-faq">
     <div class="card-header faq-pregunta-contenedor" id="headingAQuienComprar">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed faq-pregunta" type="button" data-toggle="collapse" data-target="#aQuienComprar" aria-expanded="false" aria-controls="collapseAQuienComprar">

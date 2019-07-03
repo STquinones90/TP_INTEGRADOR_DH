@@ -63,8 +63,8 @@
   <hr>
   <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
     <p class="float-left" style="color: #000;">&copy; 2019 Trabajo Integrador DH. </p>
-    <p class="float-right"><a href="index.php">-Home- </a></p>
-    <p class="float-right"><a href="#">-Volver arriba-</a></p>
+    <p class="float-right footer-link" style="color: #000;"><a href="index.php">-Home- </a></p>
+    <p class="float-right footer-link" style="color: #000;"><a href="#">-Volver arriba-</a></p>
   </div>
 
 
