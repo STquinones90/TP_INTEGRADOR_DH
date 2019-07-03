@@ -69,12 +69,12 @@
 					$consulta = $this->dbName->query("SELECT * FROM user where email ='". $email."'");
 		      $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
 					if ($resultado) {
-						var_dump('Entre por encontre mail');
+						 //var_dump('Entre por encontre mail');
 						 $theUser = new User($resultado['username'], $resultado['name'], $resultado['lastname'], $resultado['email'], $resultado['country'], $resultado['avatar'], $resultado['password']);
 						 // var_dump('Hay un tipo con ese mail');
 						 return $theUser;
 					}
-					var_dump('Salgo a buscar user');
+					//var_dump('Salgo a buscar user');
 
 					$consulta = $this->dbName->query("SELECT * FROM user where username ='". $email."'");
 		      $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
